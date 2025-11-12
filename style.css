@@ -1,0 +1,16 @@
+:root{--bg:#f7f9fb;--card:#fff;--muted:#6b7280;--accent:#0366d6;}
+body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        margin:0;background:var(--bg);color:#0f1724;line-height:1.5}
+header{background:linear-gradient(90deg,#0b5fff22,#fff);padding:2rem 1rem;border-bottom:1px solid #e6edf3}
+.container{max-width:900px;margin:1.25rem auto;padding:0 1rem}
+h1{margin:0;font-size:1.6rem}
+p.lead{color:var(--muted);margin:0.5rem 0 1.25rem}
+.card{background:var(--card);padding:1rem;border-radius:8px;box-shadow:0 6px 18px rgba(18,38,63,0.06);
+        margin-bottom:1rem;border:1px solid #edf2f7}
+h2{margin-top:0}
+pre{background:#0b1220;color:#e6eef8;padding:0.75rem;border-radius:6px;overflow:auto;font-size:0.95rem}
+code{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Helvetica Neue", monospace}
+ul{margin:0.25rem 0 0 1.1rem}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+footer{color:var(--muted);text-align:center;padding:1rem 0;font-size:0.9rem}
+.kbd{background:#eef2ff;border:1px solid #e0e7ff;padding:0.12rem 0.35rem;border-radius:6px;font-family:inherit}

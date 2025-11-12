@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Cours Git — Introduction et Cheat Sheet</title>
+    <link href="./style.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Cours Git — Guide rapide</h1>
+            <p class="lead">Introduction aux concepts et commandes essentielles de Git pour débutants et rappel rapide.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2>Qu'est‑ce que Git ?</h2>
+            <p>
+                Git est un système de gestion de versions distribué. Il permet de suivre l'historique des fichiers,
+                collaborer avec d'autres développeurs et gérer différentes lignes de développement (branches).
+            </p>
+            <ul>
+                <li>Localement : historique, commits, branches.</li>
+                <li>À distance : partage via <span class="kbd">git remote</span> / <span class="kbd">git push</span> / <span class="kbd">git pull</span>.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>Installation</h2>
+            <ul>
+                <li>Windows : installer Git for Windows (inclut Git Bash).</li>
+                <li>macOS : via Homebrew <code>brew install git</code> ou Xcode tools.</li>
+                <li>Linux : <code>sudo apt install git</code> (Debian/Ubuntu) ou le gestionnaire de paquets de la distribution.</li>
+            </ul>
+            <p>Configurer votre identité :</p>
+            <pre><code>$ git config --global user.name "Prénom Nom"
+$ git config --global user.email "moi@example.com"</code></pre>
+        </section>
+
+        <section class="card">
+            <h2>Flux de travail de base</h2>
+            <ol>
+                <li>Créer ou cloner un dépôt.</li>
+                <li>Modifier des fichiers.</li>
+                <li>Ajouter à l'index (<em>staging area</em>).</li>
+                <li>Créer un commit.</li>
+                <li>Envoyer vers le dépôt distant.</li>
+            </ol>
+
+            <h3>Exemples courants</h3>
+            <pre><code># Créer un dépôt
+$ git init
+
+# Cloner un dépôt distant
+$ git clone git@github.com:utilisateur/projet.git
+
+# Vérifier l'état
+$ git status
+
+# Ajouter et committer
+$ git add fichier.txt
+$ git commit -m "Message clair décrivant le changement"
+
+# Voir l'historique
+$ git log --oneline --graph --decorate --all</code></pre>
+        </section>
+
+        <section class="card">
+            <h2>Branches</h2>
+            <p>Les branches isolent les lignes de développement.</p>
+            <pre><code># Créer et changer de branche
+$ git branch ma-feature
+$ git checkout ma-feature
+# ou en une seule commande
+$ git switch -c ma-feature
+
+# Fusionner la branche dans main
+$ git checkout main
+$ git merge ma-feature
+
+# Supprimer une branche locale
+$ git branch -d ma-feature</code></pre>
+            <p>Conseil : travaillez sur des branches courtes et faites des PR (pull requests) pour la revue.</p>
+        </section>
+
+        <section class="card">
+            <h2>Dépôts distants</h2>
+            <pre><code># Ajouter un remote
+$ git remote add origin git@github.com:utilisateur/projet.git
+
+# Pousser la branche locale vers le remote
+$ git push -u origin main
+
+# Récupérer les changements et fusionner (pull)
+$ git pull origin main</code></pre>
+            <p>Utilisez <code>git fetch</code> + <code>git merge</code> ou <code>git pull --rebase</code> pour un historique linéaire si souhaité.</p>
+        </section>
+
+        <section class="card row">
+            <div>
+                <h3>Résolution de conflits</h3>
+                <p>Si deux commits modifient la même partie d'un fichier, Git crée un conflit. Éditer, tester, puis :</p>
+                <pre><code>$ git add fichier-conflit
+$ git commit</code></pre>
+            </div>
+
+            <div>
+                <h3>Annuler des changements</h3>
+                <pre><code># Retirer du staging
+$ git restore --staged fichier
+
+# Annuler les changements locaux dans un fichier
+$ git restore fichier
+
+# Revenir au commit précédent (attention : destructive)
+$ git reset --hard HEAD~1</code></pre>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Bonnes pratiques</h2>
+            <ul>
+                <li>Commits petits et atomiques avec des messages clairs.</li>
+                <li>Utiliser des branches pour les nouvelles fonctionnalités et corrections.</li>
+                <li>Faire des revues de code via PR/MR avant merge.</li>
+                <li>Pull régulièrement pour rester synchronisé avec l'équipe.</li>
+                <li>Ne pas committer de fichiers sensibles (utiliser .gitignore).</li>
+            </ul>
+            <pre><code># Exemple .gitignore minimal
+node_modules/
+.DS_Store
+.env</code></pre>
+        </section>
+
+        <section class="card">
+            <h2>Cheat sheet rapide</h2>
+            <pre><code>git init                # init dépôt
+git clone <url>          # cloner
+git status               # état
+git add <f>              # stage
+git commit -m "msg"      # commit
+git log --oneline        # historique court
+git branch               # lister branches
+git checkout <b>         # changer de branche
+git switch -c <b>        # créer+switch
+git merge <b>            # fusionner
+git fetch && git merge   # récupérer sans auto-pull
+git pull                 # fetch+merge
+git push origin <b>      # envoyer</code></pre>
+        </section>
+
+        <footer class="card">
+            <p>Ressources : documentation officielle Git (git-scm.com), guides GitHub/GitLab, et tutoriels interactifs.</p>
+            <p>Licence: contenu pédagogique libre pour usage de cours.</p>
+        </footer>
+    </main>
+</body>
+</html>
